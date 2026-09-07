@@ -1,70 +1,64 @@
 <div align="center">
 
-# Prim
+# Prim Foundation
 
-**A file that stores information, and tools that interact with it.**
+**Store the concept. Generate the files.**
 
-[prims.sh](https://prims.sh) · [Specification](https://github.com/primfoundation/prim/blob/main/SPEC.md) · [What is a Prim?](https://github.com/primfoundation/prim/blob/main/WHAT-IS-PRIM.md) · MIT
+[prims.sh](https://prims.sh) · [Prim specification](https://github.com/primfoundation/prim) · MIT
 
 </div>
 
 ---
 
-## The problem
+Knowledge work should survive the app, agent, employee, model vendor, and session that happened to create it.
 
-Knowledge work runs on formats designed before agents existed. Spreadsheets hold structure, documents hold decisions, decks hold the story, notes hold memory — and every one of them was built for one person at one machine. Hand those to an agent and you get scraping, guessing which tab is authoritative, and claims that carry no evidence.
+A **Prim** is a durable, portable information/work-product record. The Prim is the source of truth; spreadsheets, documents, decks, dashboards, and other interfaces are views or projections when that model fits the domain.
 
-Today an agent does real work and then flattens it into an `.xlsx` or a chat log. The next agent has to reverse-engineer it. The work dies when the window closes.
+## Design commitments
 
-## The inversion
+| Commitment | Meaning |
+| --- | --- |
+| **Durable** | Important state survives sessions and replaceable intelligence. |
+| **AI-native** | Agents can inspect and operate the structured record directly instead of reverse-engineering a human-only export. |
+| **Human-inspectable** | A person can understand the record and its important provenance without trusting a black box. |
+| **Portable** | Semantic identity and useful operation do not depend on one repository, hosted account, model vendor, or UI. |
+| **Evidence-aware** | Profiles can preserve sources, observations, claims and provenance without treating a citation/hash/validator pass as truth. |
+| **Tool-independent** | Prim Tools, agents and renderers operate on the record; they are not the durable record itself. |
 
-**Store the concept. Generate the files.**
+A simple Prim should stay simple. The Foundation does not require every record to become a universal knowledge graph, enterprise workflow, or giant taxonomy.
 
-A Prim is a self-contained pack of knowledge. The Prim is the source of truth; the spreadsheet, the document, and the deck are projections rendered out of it.
+## Foundation architecture
 
-| Property | What it means |
-|---|---|
-| **AI-native** | Agents read, validate, and reason over the pack directly — no translation layer |
-| **Evidence-first** | Claims carry provenance, trust tiers, and hashes; validation is fail-closed |
-| **Durable** | Versioned, supersedable memory that outlives the session, the agent, and the vendor |
-| **Human-inspectable** | Still openable and understandable by a person |
-| **No fixed UX** | Views are rendered on demand; a Prim Tool operates on the pack |
-| **Portable** | One file moves desk to desk, agent to agent — *"send me the prim"* |
+**`primfoundation/prim`** is the standards/profile/conformance home. Foundation-maintained profiles can coexist as portable packages; a new profile does not require a new repository.
 
-## Packaging
+**`prims.sh`** is the public discovery/distribution surface: humans and agents can find definitions, inspect exact versions, and use the public API/MCP. Public Foundation infrastructure distributes definitions and public metadata—it does not need to store users' private Prim instances.
 
-| Form | Role |
-|---|---|
-| Directory pack | Canonical source of truth — git, editing, validation |
-| `.prim.zip` | Primary interchange. Attach this when someone says *send me the prim* |
-| `.prim.tar.gz` | Allowed. Unix and agent workflows |
-| `.prim` | Reserved branded container (zip under the hood) |
+Independent products have their own release/security lifecycles while consuming the same portable contracts:
 
-## Repositories
+- **Prims Desktop** — generic desktop host/inspector.
+- **Primboard** — private encrypted spatial intake board for material that may later become a Prim or task.
+- **Prims Browsers** — sandbox browsers agents can drive without taking over the user's local pointer/session.
 
-| Repo | What it is |
-|---|---|
-| **[prim](https://github.com/primfoundation/prim)** | Category home — specification, family map, registry, TypeScript SDK, viewer |
-| **[prim.workbook](https://github.com/primfoundation/prim.workbook)** | Worksheets composing expected + actuals, citing measure/metric |
+The organization is actively consolidating historical experiments around these responsibility boundaries. Old repositories are preserved as compatibility/history until their responsibilities have verifiably moved; they are not deleted to make the diagram prettier.
 
-Domain profiles (`prim.emf`, `prim.orf`, `prim.ocsf`, `prim.osf` and others) are catalogued in [FAMILY.md](https://github.com/primfoundation/prim/blob/main/FAMILY.md).
+## Definitions, tools, and trust
+
+A profile definition says how a kind of durable record is represented/checked. A Prim Tool opens, edits, renders, connects, imports, exports, or otherwise operates on Prims.
+
+Keep these judgments separate:
+
+**official** ≠ **popular** ≠ **conformant** ≠ **security-reviewed** ≠ **factually true**.
+
+Likewise, a record describing a capability does not grant that capability, and a writable label saying “approved by a human” is not authentication by itself.
 
 ## Status
 
-**Early, and honest about it.** The category specification is at `v0.4.0-draft`. Profiles are being written, the registry is small, and the tooling is thin. The spec, the family map, and the packaging rules are all in the open under MIT so they can be argued with.
+Early and intentionally explicit about it. The category/profile architecture, compatibility work, Foundation Library/MCP, Cloudflare Hub migration, Research vNext, and reference products are under active development. Passing tests are retained as evidence of tested scope; they are not presented as proof that every migration, security review, deployment, or real-user gate is complete.
 
-If you are evaluating this: start with [WHAT-IS-PRIM.md](https://github.com/primfoundation/prim/blob/main/WHAT-IS-PRIM.md), then read [SPEC.md](https://github.com/primfoundation/prim/blob/main/SPEC.md), then open [`examples/minimal-concept`](https://github.com/primfoundation/prim/tree/main/examples/minimal-concept).
-
-## How to say it
-
-> "Send me the prim."
->
-> "Don't send the spreadsheet — just send the prim."
->
-> "The prim is the source of truth. The deck is just a view."
+Start with [the Prim repository](https://github.com/primfoundation/prim) and [prims.sh](https://prims.sh).
 
 ---
 
 <div align="center">
-<sub>Prim Foundation · MIT licensed · <a href="https://prims.sh">prims.sh</a></sub>
+<sub>Prim Foundation · open standards and reference tools · <a href="https://prims.sh">prims.sh</a></sub>
 </div>

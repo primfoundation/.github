@@ -4,7 +4,7 @@
 
 **Store the concept. Generate the files.**
 
-[prims.sh](https://prims.sh) · [Prim specification](https://github.com/primfoundation/prim) · MIT
+[prims.sh](https://prims.sh) · [Prim specification](https://github.com/primfoundation/prims) · MIT
 
 </div>
 
@@ -29,7 +29,7 @@ A simple Prim should stay simple. The Foundation does not require every record t
 
 ## Foundation architecture
 
-**`primfoundation/prim`** is the standards/profile/conformance home. Foundation-maintained profiles can coexist as portable packages; a new profile does not require a new repository.
+**`primfoundation/prims`** is the standards/profile/conformance home. Foundation-maintained profiles can coexist as portable packages; a new profile does not require a new repository.
 
 **`prims.sh`** is the public discovery/distribution surface: humans and agents can find definitions, inspect exact versions, and use the public API/MCP. Public Foundation infrastructure distributes definitions and public metadata—it does not need to store users' private Prim instances.
 
@@ -55,7 +55,7 @@ Likewise, a record describing a capability does not grant that capability, and a
 
 Early and intentionally explicit about it. The category/profile architecture, compatibility work, Foundation Library/MCP, Cloudflare Hub migration, Research vNext, and reference products are under active development. Passing tests are retained as evidence of tested scope; they are not presented as proof that every migration, security review, deployment, or real-user gate is complete.
 
-Start with [the Prim repository](https://github.com/primfoundation/prim) and [prims.sh](https://prims.sh).
+Start with [the Prim repository](https://github.com/primfoundation/prims) and [prims.sh](https://prims.sh).
 
 ---
 
